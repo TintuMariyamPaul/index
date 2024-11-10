@@ -9,6 +9,7 @@ ansible.yml- script includes
         Install Docker Engine
         Start and enable Docker service
         Add user to the Docker group
+       Enable Docker to Start on Boot
 
 # Running the Playbook
 # test the connection
