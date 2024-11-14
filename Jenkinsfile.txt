@@ -1,8 +1,13 @@
 pipeline {
     agent any
     environment {
-        IMAGE_NAME = "simple-html-app"  // Docker image name
-        CONTAINER_NAME = "html-container"  // Docker container name
+        IMAGE_NAME = "sample-app"           // Docker image name
+        CONTAINER_NAME = "html-container"   // Docker container name
+    }
+    triggers {
+        // Polls GitHub every minute to check for changes
+        // Alternative: use GitHub webhooks to trigger automatically
+        pollSCM('* * * * *')
     }
     stages {
         stage('Clone Repository') {
@@ -21,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Deploy in Docker Container') {
+        stage('Deploy Docker Container') {
             steps {
                 script {
                     // Stop and remove any running container with the same name
