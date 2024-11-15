@@ -25,6 +25,7 @@ Add the path to the 'Jenkinsfile'
 create jenkinsfile
 Once the Jenkins job is configured:
 Click Build Now to start the pipeline.
-# Troubleshooting
-EC2 SSH Access: Verify that the SSH key is correctly configured in Jenkins and the EC2 instance allows inbound connections on the required ports (e.g., 80 for HTTP).
+# Troubleshooting done
+EC2 SSH Access: Verify that the SSH key is correctly configured in Jenkins and the EC2 instance allows inbound connections on the required ports 
+port 8080 is open or not.
 
