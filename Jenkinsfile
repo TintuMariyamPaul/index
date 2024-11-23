@@ -23,7 +23,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 3001:80 my-docker-image:latest'
+                    sh 'docker run -d -p 8081:80 my-docker-image:latest'
                 }
             }
         }
