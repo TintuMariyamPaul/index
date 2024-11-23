@@ -25,7 +25,7 @@ pipeline {
                 script {
                     // Stop and remove the existing container if it exists
                     sh '''
-                    if [ $(docker ps -aq -f name=html-container) ]; then
+                    if [ $(docker ps -aq -f name=html-application) ]; then
                         docker stop html-container
                         docker rm html-container
                     fi
