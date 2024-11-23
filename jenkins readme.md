@@ -25,6 +25,9 @@ Add the path to the 'Jenkinsfile'
 create jenkinsfile
 Once the Jenkins job is configured:
 Click Build Now to start the pipeline.
+On Code Push: GitHub triggers a Jenkins webhook, which starts the pipeline.
+Image Build: Jenkins builds a new Docker image tagged as latest.
+Container Deployment: Any existing container using the same name is stopped and removed before deploying the new container.
 # Troubleshooting done
 EC2 SSH Access: Verify that the SSH key is correctly configured in Jenkins and the EC2 instance allows inbound connections on the required ports 
 port 8080 is open or not.
