@@ -20,10 +20,18 @@ pipeline {
                 }
             }
         }
-        stage('Run Docker Container') {
+        stage('Deploy Docker Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 3008:80 my-docker-image:latest'
+                    // Stop and remove the existing container if it exists
+                    sh '''
+                    if [ $(docker ps -aq -f name=html-container) ]; then
+                        docker stop html-container
+                        docker rm html-container
+                    fi
+                    '''
+                    // Run a new container with the updated image
+                    sh 'docker run -d -p 3008:80 --name html-container my-docker-image:latest'
                 }
             }
         }
