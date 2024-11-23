@@ -26,12 +26,12 @@ pipeline {
                     // Stop and remove the existing container if it exists
                     sh '''
                     if [ $(docker ps -aq -f name=html-application) ]; then
-                        docker stop html-container
-                        docker rm html-container
+                        docker stop html-application
+                        docker rm html-application
                     fi
                     '''
                     // Run a new container with the updated image
-                    sh 'docker run -d -p 3008:80 --name html-container my-docker-image:latest'
+                    sh 'docker run -d -p 3008:80 --name html-application my-docker-image:latest'
                 }
             }
         }
