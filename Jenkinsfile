@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Clone Repository') {
             steps {
@@ -30,9 +31,19 @@ pipeline {
                         docker rm html-sample
                     fi
                     '''
-                    // Run a new container with the updated image
+
+                    // Run the new container with the latest image
                     sh 'docker run -d -p 3008:80 --name html-sample my-docker-image:latest'
                 }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // Optional cleanup of old unused images
+                sh 'docker image prune -f'
             }
         }
     }
