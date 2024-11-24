@@ -33,7 +33,7 @@ pipeline {
                     '''
 
                     // Run the new container with the latest image
-                    sh 'docker run -d -p 3008:80 --name html-sample my-docker-image:latest'
+                    sh 'docker run -d -p 3008:80 --name html-sample app:latest'
                 }
             }
         }
